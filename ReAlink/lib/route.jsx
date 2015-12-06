@@ -1,4 +1,7 @@
-FlowRouter.route('/',{
+
+exposed = FlowRouter.group({});
+
+exposed.route('/',{
   name: 'home',
   action: (params) => {
     renderMainLayoutWith(<Home />);
@@ -6,20 +9,43 @@ FlowRouter.route('/',{
   }
 });
 
-FlowRouter.route('/Contact',{
-  name: 'Contact',
+exposed.route('/AccessDenied',{
+  name: 'AccessDenied',
   action: (params) => {
-    renderMainLayoutWith(<Contact />);
-    setTitle('Contact');
+    renderMainLayoutWith(<AccessDenied />);
+    setTitle('AccessDenied');
   }
 });
 
-FlowRouter.route('/Feature',{
-  name: 'Feature',
+loggedIn = FlowRouter.group({
+  triggersEnter: [
+    () => {
+      if(!(Meteor.loggingIn() || Meteor.userId())){
+        route = FlowRouter.current();
+        if(route.route.name !== 'AccessDenied'){
+          Session.set('redirectAfterLogin', route.path);
+        }
+        return FlowRouter.go('/AccessDenied');
+      }
+    }
+  ]
+});
+
+loggedIn.route('/Links',{
+  name: 'Links',
+  triggersEnter: [ function() {
+   console.log( "Something to do on ENTER." );
+ }],
+ subscriptions : function () {
+   console.log('subscription goes here.');
+ },
   action: (params) => {
-    renderMainLayoutWith(<Feature />);
-    setTitle('Feature');
-  }
+    renderMainLayoutWith(<LinkList />);
+    setTitle('Links');
+  },
+  triggersExit: [ function() {
+    console.log( "Something to do on EXIT." );
+  }]
 });
 
 let renderMainLayoutWith = (component) => {

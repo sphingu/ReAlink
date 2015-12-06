@@ -54,7 +54,7 @@ Header = React.createClass({
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#"><i className="fa fa-shield fa-fw"></i>URL Store</a>
+              <a className="navbar-brand" href="#" style={{fontWeight: 'bold', textTransform: 'uppercase'}}><i className="fa fa-shield fa-fw"></i>URL Store</a>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
@@ -62,11 +62,10 @@ Header = React.createClass({
                   <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="/Contact">Contact</a>
+                  <a href="/Links">Contact</a>
                 </li>
               </ul>
-              <ul className="nav navbar-nav navbar-right">
-              </ul>
+              <AccountsUIWrapper />
             </div>
           </div>
         </nav>
