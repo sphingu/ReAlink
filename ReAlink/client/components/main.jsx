@@ -3,7 +3,9 @@ MainLayout = React.createClass({
     return (
       <div>
         <Header />
-        {this.props.component}
+        <section id="content" className="main container" style={{marginTop:65+'px'}}>
+          {this.props.component}
+        </section>
         <Footer />
       </div>
     );
