@@ -1,45 +1,62 @@
 const { AppBar, IconButton, IconMenu, LeftNav } = mui;
 const { MenuItem } = mui.Menus;
-  const { NavigationMoreVert } = mui.SvgIcons;
+const { NavigationMoreVert } = mui.SvgIcons;
+
 const Styles = mui.Styles;
 const Colors = Styles.Colors;
 const ThemeManager = Styles.ThemeManager;
 const DefaultRawTheme = Styles.DarkRawTheme;
+
 Header = React.createClass({
+
   componentWillMount(){
     let Theme = this.state.muiTheme;
     const appPalette = {
-    textColor: Colors.darkBlack,
-    alternateTextColor: Colors.white,
-    canvasColor: Colors.white,
-    borderColor: Colors.yellow,
-    disabledColor: Colors.grey300
+      textColor: Colors.darkBlack,
+      alternateTextColor: Colors.white,
+      canvasColor: Colors.white,
     };
     var newTheme = ThemeManager.modifyRawThemePalette(Theme,appPalette);
-    newTheme.inkBar.backgroundColor = Colors.yellow200;
     this.setState({
       muiTheme: newTheme
     });
   },
+
   getInitialState() {
     return {
       muiTheme: ThemeManager.getMuiTheme(DefaultRawTheme)
     };
   },
+
+  contextTypes : {
+    router: React.PropTypes.func
+  },
+
   childContextTypes : {
     muiTheme: React.PropTypes.object
   },
+
   getChildContext() {
    return {
      muiTheme: this.state.muiTheme
    };
- },
- getMenuItems() {
+  },
+
+  getMenuItems() {
     return [
-      { route: "home", text: "Home" },
-      { route: "feature", text: "Feature" },
-      { route: "contact", text: "Contact" }
+      { target: "/", text: "Home" },
+      { target: "/feature", text: "Feature" },
+      { target: "/contact", text: "Contact" }
     ];
+  },
+  _onLeftNavChange(e, selectedIndex, menuItem) {
+     if(menuItem.target){
+       FlowRouter.go(menuItem.target);
+       //this._toggleLeftNav();
+    }
+  },
+  _toggleLeftNav(){
+    this.refs.leftNav.toggle();
   },
   render(){
     return (
@@ -47,10 +64,12 @@ Header = React.createClass({
       <LeftNav
         ref="leftNav"
         docked={false}
-        menuItems={this.getMenuItems()} />
+        menuItems={this.getMenuItems()}
+        onChange={this._onLeftNavChange}
+        />
       <AppBar
         title="ReAlink"
-        onLeftIconButtonTouchTap={()=>this.refs.leftNav.toggle()}
+        onLeftIconButtonTouchTap={this._toggleLeftNav}
         style={{backgroundColor: Colors.deepPurple400}}
         iconElementRight={
           <IconMenu
