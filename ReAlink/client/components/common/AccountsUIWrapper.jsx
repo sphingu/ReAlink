@@ -13,7 +13,6 @@ accountsUIBootstrap3.logoutCallback = function(error) {
 AccountsUIWrapper = React.createClass({
   componentDidMount() {
     // Use Meteor Blaze to render login buttons
-    debugger;
     this.view = Blaze.render(Template._loginButtons,
       ReactDOM.findDOMNode(this.refs.container));
   },

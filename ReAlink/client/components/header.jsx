@@ -42,6 +42,9 @@ Header = React.createClass({
   // _toggleLeftNav(){
   //   this.refs.leftNav.toggle();
   // },
+  _isRouteActive(routeName){
+    return (FlowRouter.current().route.name === routeName) ? "active": "";
+  },
   render(){
     return (
       <header>
@@ -58,10 +61,10 @@ Header = React.createClass({
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li className="active">
+                  <li className={this._isRouteActive('Home')}>
                   <a href="/">Home</a>
                 </li>
-                <li>
+                <li className={this._isRouteActive('Links')}>
                   <a href="/Links">Contact</a>
                 </li>
               </ul>

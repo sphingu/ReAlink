@@ -2,7 +2,7 @@
 exposed = FlowRouter.group({});
 
 exposed.route('/',{
-  name: 'home',
+  name: 'Home',
   action: (params) => {
     renderMainLayoutWith(<Home />);
     setTitle('Home');

@@ -41,6 +41,7 @@ msavin:mongol               # In-App MongoDB Editor
 accounts-github
 ian:accounts-ui-bootstrap-3
 service-configuration       # Manage the configuration for third-party services
-cottz:flow-router-auth      # simple way to validate authentications with Flow-Router
+# cottz:flow-router-auth      # simple way to validate authentications with Flow-Router
+# zimme:active-route          # Active route helpers
 
 philippspo:momentum-flow-router   # Transition in routing for flow-route (like ccorcos:transitioner for iron-route)
