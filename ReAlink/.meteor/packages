@@ -45,3 +45,5 @@ service-configuration       # Manage the configuration for third-party services
 # zimme:active-route          # Active route helpers
 
 philippspo:momentum-flow-router   # Transition in routing for flow-route (like ccorcos:transitioner for iron-route)
+
+aramk:tinycolor       

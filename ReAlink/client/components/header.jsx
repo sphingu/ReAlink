@@ -62,10 +62,10 @@ Header = React.createClass({
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
                   <li className={this._isRouteActive('Home')}>
-                  <a href="/">Home</a>
+                  <a href={FlowRouter.path('Home')}>Home</a>
                 </li>
                 <li className={this._isRouteActive('Links')}>
-                  <a href="/Links">Contact</a>
+                  <a href={FlowRouter.path('Links')}>Contact</a>
                 </li>
               </ul>
               <AccountsUIWrapper />

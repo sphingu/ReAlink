@@ -48,10 +48,10 @@ LinksSchema.labels({
 Links.attachSchema(LinksSchema);
 Links.helpers({
     detailPath: function () {
-        return '/link/' + this._id;
+        return '/LinkDetail/' + this._id;
     },
     editPath: function () {
-        return '/editLink/' + this._id;
+        return '/LinkEdit/' + this._id;
     }
 });
 Links.allow({

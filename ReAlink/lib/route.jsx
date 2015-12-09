@@ -47,6 +47,27 @@ loggedIn.route('/Links',{
     console.log( "Something to do on EXIT." );
   }]
 });
+loggedIn.route('/AddLink',{
+  name: 'AddLink',
+  action: (params) =>{
+    renderMainLayoutWith(<AddLink />);
+    setTitle('Add Link');
+  }
+});
+loggedIn.route('/LinkDetail/:id',{
+  name: 'LinkDetail',
+  action: (params) =>{
+    renderMainLayoutWith(<LinkDetail id={params.id} />);
+    setTitle('Link Detail');
+  }
+});
+loggedIn.route('/LinkEdit/:id',{
+  name: 'LinkEdit',
+  action: (params) =>{
+    renderMainLayoutWith(<LinkEdit id={params.id} />);
+    setTitle('Link Edit');
+  }
+});
 
 let renderMainLayoutWith = (component) => {
   ReactLayout.render(MainLayout, {

@@ -17,6 +17,15 @@
     transition: $transition-property $transition-time $method;
 }
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('packages/bootswatch_cosmo/bootstrap/dist/fonts/glyphicons-halflings-regular.eot');
+  src: url('packages/bootswatch_cosmo/bootstrap/dist/fonts/glyphicons-halflings-regular.eot?') format('embedded-opentype'),
+    url('packages/bootswatch_cosmo/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+    url('packages/bootswatch_cosmo/bootstrap/dist/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('packages/bootswatch_cosmo/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('packages/bootswatch_cosmo/bootstrap/dist/fonts/glyphicons-halflings-regular.svg') format('svg');
+}
 
 $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
