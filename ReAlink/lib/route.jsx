@@ -37,10 +37,10 @@ loggedIn.route('/Links',{
    console.log( "Something to do on ENTER." );
  }],
  subscriptions : function () {
-   console.log('subscription goes here.');
+   Meteor.subscribe('links');
  },
   action: (params) => {
-    renderMainLayoutWith(<LinkList />);
+    renderMainLayoutWith(<LinkListContainer />);
     setTitle('Links');
   },
   triggersExit: [ function() {

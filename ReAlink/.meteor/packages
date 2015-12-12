@@ -46,4 +46,7 @@ service-configuration       # Manage the configuration for third-party services
 
 philippspo:momentum-flow-router   # Transition in routing for flow-route (like ccorcos:transitioner for iron-route)
 
-aramk:tinycolor       
+aramk:tinycolor
+
+skinnygeek1010:flux-helpers     # Helpers to make flux easier to use with Meteor
+froatsnook:alt                  # A flux implementation, packaged for meteor

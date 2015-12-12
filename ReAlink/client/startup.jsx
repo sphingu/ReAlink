@@ -4,4 +4,5 @@ Meteor.startup(() => {
     position: 'left-bottom',
     timeout: 5000
   });
+  trackCollection(Links, LinkListActions.linksChanged)
 });
