@@ -9,6 +9,8 @@ class LinkStore{
     console.log('LinkStore ctor bindListern end and set state start');
     this.state = {
       links : [],
+      linkId: '',
+      link: '',
       isThumbView: false,
       isLoading: true
     };
@@ -18,6 +20,7 @@ class LinkStore{
     console.log('onLinksChanged start');
     this.setState({
       links: Link.findAll(),
+      link: this.state.linkId !=='' ? Link.findOne(this.state.linkId) : '',
       isLoading: false
     });
     console.log('onLinksChanged end');

@@ -7,5 +7,9 @@ Link = {
   },
   findAll(){
     return Links.find({}, { sort: { updatedAt: -1, createdAt: -1 } }).fetch();
+  },
+  findOne(id){
+    return Links.findOne({ _id: id });
   }
+
 }

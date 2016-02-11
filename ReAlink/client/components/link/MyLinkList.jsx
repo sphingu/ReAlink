@@ -5,18 +5,18 @@ class LinkListContainer extends React.Component{
     this.state = LinkStore.getState();
     console.log('Component constructor get state end');
   }
-
   componentDidMount(){
     console.log('set store listener for state change DIDMOUNT');
-    LinkStore.listen(this.onChange.bind(this));
+    this.changeListener = this.onChange.bind(this);
+    LinkStore.listen(this.changeListener);
   }
   componentWillUnmount(){
     console.log('set store unlistener for state change DIDUNMOUNT');
-    LinkStore.unlisten(this.onChange.bind(this));
+    LinkStore.unlisten(this.changeListener);
   }
   onChange(state){
     console.log('set state from onCHnage start');
-    this.setState(state);
+      this.setState(state);
     console.log('set state from onCHnage end');
   }
 

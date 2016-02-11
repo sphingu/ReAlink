@@ -57,9 +57,12 @@ loggedIn.route('/AddLink',{
 loggedIn.route('/LinkDetail/:id',{
   name: 'LinkDetail',
   action: (params) =>{
-    renderMainLayoutWith(<LinkDetail id={params.id} />);
+    renderMainLayoutWith(<LinkDetailContainer id={params.id} />);
     setTitle('Link Detail');
-  }
+  },
+  subscriptions : function (params) {
+    Meteor.subscribe('link',params.id);
+  },
 });
 loggedIn.route('/LinkEdit/:id',{
   name: 'LinkEdit',
